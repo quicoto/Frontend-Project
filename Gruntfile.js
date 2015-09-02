@@ -39,13 +39,16 @@ module.exports = function(grunt) {
 				dest: 'dist/css/XXX-ie8.css'
 			},
 
-			js_main: {
-				src : ['source/js/components/*.js', 'source/js/common.js'],
-				dest : 'dist/js/XXX-app.js'
+			css_pack: {
+			    src: [
+			        'dist/css/XXX-vendor.css',
+					'dist/css/XXX-main.css',
+			    ],
+			    dest: 'dist/css/XXX-pack.css'
 			},
 
-			js_debug: {
-				src : ['source/js/__debug.js', 'dist/js/XXX-app.js'],
+			js_main: {
+				src : ['source/js/components/*.js', 'source/js/common.js'],
 				dest : 'dist/js/XXX-app.js'
 			},
 
@@ -57,6 +60,21 @@ module.exports = function(grunt) {
 				],
 				dest : 'dist/js/XXX-vendor.js',
 				separator: ';'
+			},
+
+			js_pack: {
+				src : ['dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
+				dest : 'dist/js/XXX-pack.js'
+			},
+
+			js_debug_true: {
+				src : ['source/js/__debug_true.js', 'dist/js/XXX-pack.js'],
+				dest : 'dist/js/XXX-pack-debug.js'
+			},
+
+			js_debug_false: {
+				src : ['source/js/__debug_false.js', 'dist/js/XXX-pack.js'],
+				dest : 'dist/js/XXX-pack.js'
 			},
 
 			js_ie8: {
@@ -101,6 +119,11 @@ module.exports = function(grunt) {
 			ie8: {
 				src: 'dist/css/XXX-ie8.css',
 				dest: 'dist/css/XXX-ie8.min.css'
+			},
+
+			main: {
+				src: 'dist/css/XXX-pack.css',
+				dest: 'dist/css/XXX-pack.min.css'
 			}
 		},
 
@@ -204,7 +227,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8']);
 
-	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8', 'stripmq:ie8', 'cssmin_regular', 'copy:img', 'copy:fonts']);
+	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8', 'cssmin_regular', 'copy:img', 'copy:fonts']);
 
 	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8', 'uglify:js', 'copy:other']);
 
