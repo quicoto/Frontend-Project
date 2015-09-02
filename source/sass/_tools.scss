@@ -1,0 +1,42 @@
+@import "compass/css3";
+
+$px-only: false !default;
+
+
+@mixin background-color($color, $alpha) {
+	background-color: $color;
+	background-color: rgba($color, $alpha);
+}
+
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1);
+}
+
+@function rem($values) {
+	$list: null;
+
+	@each $value in $values {
+		$unit: unit($value);
+		$val: parseInt($value);
+
+		@if ($px-only) {
+			@if ($unit == 'rem') or ($unit == '') {
+				$list: append($list, ($val * 10) + px);
+			}
+			@else {
+				$list: append($list, $value);
+			}
+		}
+
+		@else if($unit == 'px') or ($unit == 'rem'){
+			$list: append($list, $value);
+		}
+
+		@else {
+			// we treat default unit as rem
+			$list: append($list, $value + rem);
+		}
+	}
+
+	@return $list();
+}
