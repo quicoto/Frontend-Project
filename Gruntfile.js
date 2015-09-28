@@ -141,7 +141,8 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					'dist/js/XXX-app.min.js': ['dist/js/XXX-app.js'],
-					'dist/js/XXX-vendor.min.js': ['dist/js/XXX-vendor.js']
+					'dist/js/XXX-vendor.min.js': ['dist/js/XXX-vendor.js'],
+					'dist/js/XXX-pack.min.js': ['dist/js/XXX-pack.js']
 				}
 			}
 		},
@@ -229,7 +230,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8', 'cssmin_regular', 'copy:img', 'copy:fonts']);
 
-	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8', 'uglify:js', 'copy:other']);
+	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_pack', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8', 'uglify:js', 'copy:other']);
 
 	// Different Tasks that can be run
 	// grunt
