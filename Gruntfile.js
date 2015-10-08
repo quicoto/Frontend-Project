@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 				dest: 'dist/css/XXX-ie8.min.css'
 			},
 
-			main: {
+			pack: {
 				src: 'dist/css/XXX-pack.css',
 				dest: 'dist/css/XXX-pack.min.css'
 			}
@@ -226,7 +226,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-stripmq');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8']);
+	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8', 'cssmin:pack']);
 
 	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8', 'cssmin_regular', 'copy:img', 'copy:fonts']);
 
