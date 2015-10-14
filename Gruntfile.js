@@ -4,6 +4,10 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		watch: {
+			html: {
+				files: ['html-source/*.html', 'html-source/includes/*.html'],
+				tasks: ['clean:html', 'compile_html']
+			},
 			css: {
 				files: ['source/sass/**/*.{scss,sass}', 'source/img/sprite/*', ],
 				tasks: 'css_compile'
@@ -167,12 +171,11 @@ module.exports = function(grunt) {
 
 		clean: {
 			all: {
-				src: ['dist/**', 'source/css/**']
+				src: ['html/*', 'dist/**', 'source/css/**']
 			},
 
-			partial: {
-				force: true,
-				src: ['dist/partial*']
+			html: {
+				src: ['html/*']
 			}
 		},
 
@@ -196,6 +199,20 @@ module.exports = function(grunt) {
 				cwd: 'source/other',
 				src: '*',
 				dest: 'dist/other'
+			}
+		},
+
+		jinja: {
+			dist: {
+				options: {
+					templateDirs: ['html-source']
+				},
+				files: [{
+				expand: true,
+					dest: 'html/',
+					cwd: 'html-source/',
+					src: ['**/!(_)*.html']
+				}]
 			}
 		},
 
@@ -224,6 +241,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-combine-media-queries');
 	grunt.loadNpmTasks('grunt-stripmq');
+	grunt.loadNpmTasks('grunt-jinja');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8', 'cssmin:pack']);
@@ -232,9 +250,11 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_pack', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8', 'uglify:js', 'copy:other']);
 
+	grunt.registerTask('compile_html', ['jinja']);
+
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile', 'js_compile', 'copy', 'imagemin']);
+	grunt.registerTask('default', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'imagemin']);
 	// grunt dev
 	grunt.registerTask('dev', ['default', 'watch']);
 };
