@@ -16,6 +16,6 @@
     "grunt-combine-media-queries": ">= 1.0.0",
     "grunt-stripmq": ">= 0.0.6",
     "grunt-jinja": ">= 0.3.0",
-    "grunt-contrib-imagemin": ">=0.4.0",    
+    "grunt-contrib-imagemin": ">=0.4.0"
   }
 }
