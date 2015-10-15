@@ -4,6 +4,12 @@
 
 <section class="container">
 	<h1>Hello World</h1>
+
+	<ul>
+		{% for _ in range(0, 10) -%}
+		<li>This will be rendered 10 times</li>
+		{% endfor -%}
+	</ul>
 </section>
 
 {% include "includes/_bottom.html" %}
