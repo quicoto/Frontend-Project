@@ -2,5 +2,5 @@
 	"undef": false,
 	"eqeqeq": true,
 	"curly": true,
-	"unused": true
+	"unused": false
 }
