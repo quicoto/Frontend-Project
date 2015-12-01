@@ -1,4 +1,21 @@
+/**
+ * Livereload and connect variables
+ */
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({
+  port: LIVERELOAD_PORT
+});
+var mountFolder = function (connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
+
+
 module.exports = function(grunt) {
+
+    /**
+     * Dynamically load npm tasks
+     */
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -19,8 +36,39 @@ module.exports = function(grunt) {
 			grunt_conf: {
 				files: 'Gruntfile.js',
 				tasks: 'default'
-			}
+			},
+            livereload: {
+                options: {
+                  livereload: LIVERELOAD_PORT
+                },
+                files: [
+                  'html/{,*/}*.html',
+                  'dist/css/*.css',
+                  'dist/js/{,*/}*.js',
+                  'dist/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
+              }
 		},
+
+        connect: {
+          options: {
+            port: 9000,
+            hostname: '*'
+          },
+          livereload: {
+            options: {
+              middleware: function (connect) {
+                return [lrSnippet, mountFolder(connect, '')];
+              }
+            }
+          }
+        },
+
+        open: {
+          server: {
+            path: 'http://localhost:<%= connect.options.port %>'
+          }
+        },
 
 		concat: {
 			css_main: {
@@ -231,19 +279,6 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-combine-media-queries');
-	grunt.loadNpmTasks('grunt-stripmq');
-	grunt.loadNpmTasks('grunt-jinja');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
-
 	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8', 'cssmin:pack']);
 
 	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8', 'cssmin_regular', 'copy:img', 'copy:fonts']);
@@ -256,5 +291,5 @@ module.exports = function(grunt) {
 	// grunt
 	grunt.registerTask('default', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'imagemin']);
 	// grunt dev
-	grunt.registerTask('dev', ['default', 'watch']);
+	grunt.registerTask('dev', ['default', 'connect:livereload', 'open', 'watch']);
 };
