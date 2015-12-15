@@ -224,7 +224,15 @@ module.exports = function(grunt) {
 
 			html: {
 				src: ['html/*']
-			}
+			},
+
+            productionCSS: {
+                src: ["dist/css/*.css", "!dist/css/*.min.css"]
+            },
+
+            productionJS: {
+                src: ["dist/js/*.js", "!dist/js/*.min.js"]
+            }
 		},
 
 		copy: {
@@ -289,7 +297,7 @@ module.exports = function(grunt) {
 
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin']);
+	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS']);
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
 };
