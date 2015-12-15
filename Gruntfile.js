@@ -253,12 +253,12 @@ module.exports = function(grunt) {
 		jinja: {
 			dist: {
 				options: {
-					templateDirs: ['html-source']
+					templateDirs: ['source/html']
 				},
 				files: [{
 				expand: true,
 					dest: 'html/',
-					cwd: 'html-source/',
+					cwd: 'source/html',
 					src: ['**/!(_)*.html']
 				}]
 			}
