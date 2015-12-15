@@ -281,15 +281,15 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8', 'cssmin:pack']);
 
-	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8', 'cssmin_regular', 'copy:img', 'copy:fonts']);
+	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
 
-	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_pack', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8', 'uglify:js', 'copy:other']);
+	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_pack', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8']);
 
 	grunt.registerTask('compile_html', ['jinja']);
 
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'imagemin']);
+	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin']);
 	// grunt dev
-	grunt.registerTask('dev', ['default', 'connect:livereload', 'open', 'watch']);
+	grunt.registerTask('dev', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
 };
