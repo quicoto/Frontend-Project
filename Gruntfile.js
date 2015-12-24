@@ -113,19 +113,14 @@ module.exports = function(grunt) {
 				dest : 'dist/js/XXX-vendor.js',
 				separator: ';'
 			},
-
-			js_pack: {
-				src : ['dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
-				dest : 'dist/js/XXX-pack.js'
-			},
-
+            
 			js_debug_true: {
-				src : ['source/js/__debug_true.js', 'dist/js/XXX-pack.js'],
+				src : ['source/js/__debug_true.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
 				dest : 'dist/js/XXX-pack-debug.js'
 			},
 
 			js_debug_false: {
-				src : ['source/js/__debug_false.js', 'dist/js/XXX-pack.js'],
+				src : ['source/js/__debug_false.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
 				dest : 'dist/js/XXX-pack.js'
 			},
 
@@ -291,7 +286,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
 
-	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_pack', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8']);
+	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8']);
 
 	grunt.registerTask('compile_html', ['jinja']);
 
