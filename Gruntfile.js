@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 
 			css_bootstrap: {
 				src: [
-					'source/css/vendor/font-awesome.css',
+					'source/css/vendor/font-awesome*.css',
 					'source/css/vendor/bootstrap*/*.css'
 				],
 				dest: 'dist/css/XXX-vendor.css'
@@ -106,14 +106,14 @@ module.exports = function(grunt) {
 
 			js_vendor: {
 				src : [
-					'source/js/vendor/jquery-1*min.js',
+					'source/js/vendor/jquery*.js',
 					'source/js/vendor/bootstrap*/*.js',
 					'source/js/vendor/other*/*.js'
 				],
 				dest : 'dist/js/XXX-vendor.js',
 				separator: ';'
 			},
-            
+
 			js_debug_true: {
 				src : ['source/js/__debug_true.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
 				dest : 'dist/js/XXX-pack-debug.js'
