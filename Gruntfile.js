@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			html: {
-				files: ['html-source/*.html', 'html-source/includes/*.html'],
+				files: ['source/html/*.html', 'source/html/includes/*.html'],
 				tasks: ['clean:html', 'compile_html']
 			},
 			css: {
