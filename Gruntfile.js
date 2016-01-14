@@ -222,11 +222,11 @@ module.exports = function(grunt) {
 			},
 
             productionCSS: {
-                src: ["dist/css/*.css", "!dist/css/*.min.css"]
+                src: ["dist/css/*.css", "!dist/css/*.min.css", "dist/css/XXX-vendor.min.css", "dist/css/XXX-main.min.css"]
             },
 
             productionJS: {
-                src: ["dist/js/*.js", "!dist/js/*.min.js"]
+                src: ["dist/js/*.js", "!dist/js/*.min.js", "dist/js/XXX-main.min.js", "dist/js/XXX-vendor.min.js"]
             }
 		},
 
