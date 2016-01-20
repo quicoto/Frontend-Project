@@ -226,7 +226,7 @@ module.exports = function(grunt) {
             },
 
             productionJS: {
-                src: ["dist/js/*.js", "!dist/js/*.min.js", "dist/js/XXX-main.min.js", "dist/js/XXX-vendor.min.js"]
+                src: ["dist/js/*.js", "!dist/js/*.min.js", "dist/js/XXX-main.min.js", "dist/js/XXX-vendor.min.js", "dist/js/XXX-app.min.js"]
             }
 		},
 
