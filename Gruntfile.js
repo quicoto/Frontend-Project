@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 			},
 			css: {
 				files: ['source/sass/**/*.{scss,sass}', 'source/img/sprite/*', ],
-				tasks: 'css_compile'
+				tasks: 'css_compile_dev'
 			},
 			js: {
 				files: 'source/js/**/*.js',
@@ -71,6 +71,9 @@ module.exports = function(grunt) {
         },
 
 		concat: {
+            options: {
+                sourceMap: true,
+            },
 			css_main: {
 				src: ['source/css/main.css'],
 				dest: 'dist/css/XXX-main.css'
@@ -197,7 +200,14 @@ module.exports = function(grunt) {
 		compass: {
 			dev: {
 				options: {
-					config: 'configs/config.rb'
+					config: 'configs/config.rb',
+                    sourcemap: true
+				}
+			},
+            prod: {
+				options: {
+					config: 'configs/config.rb',
+                    sourcemap: false
 				}
 			}
 		},
@@ -221,12 +231,20 @@ module.exports = function(grunt) {
 				src: ['html/*']
 			},
 
+            temporalCSS: {
+                src: ["source/css/*"]
+            },
+
             productionCSS: {
                 src: ["dist/css/*.css", "!dist/css/*.min.css", "dist/css/XXX-vendor.min.css", "dist/css/XXX-main.min.css"]
             },
 
             productionJS: {
                 src: ["dist/js/*.js", "!dist/js/*.min.js", "dist/js/XXX-main.min.js", "dist/js/XXX-vendor.min.js", "dist/js/XXX-app.min.js"]
+            },
+
+            sourceMaps: {
+                src: ["dist/css/*.map", "dist/js/*.map"]
             }
 		},
 
@@ -284,7 +302,8 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8', 'cssmin:pack']);
 
-	grunt.registerTask('css_compile', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
+	grunt.registerTask('css_compile_prod', ['compass:prod', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
+    grunt.registerTask('css_compile_dev', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
 
 	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8']);
 
@@ -292,7 +311,7 @@ module.exports = function(grunt) {
 
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS']);
+	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
 	// grunt dev
-	grunt.registerTask('dev', ['clean:all', 'css_compile', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
+	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
 };
