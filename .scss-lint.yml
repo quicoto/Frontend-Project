@@ -1,0 +1,19 @@
+# Default application configuration that all configurations inherit from.
+
+scss_files: "source/sass/**/*.scss"
+
+# Default severity of all linters.
+severity: error
+
+linters:
+  HexLength:
+    enabled: true
+    style: long # or 'long'
+
+  HexNotation:
+    enabled: true
+    style: uppercase # or 'uppercase'
+
+  Indentation:
+    width: 1
+    character: tab

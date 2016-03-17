@@ -70,6 +70,17 @@ module.exports = function(grunt) {
           }
         },
 
+        scsslint: {
+            allFiles: [
+              'source/sass/*.scss',
+            ],
+            options: {
+              bundleExec: false,
+              config: '.scss-lint.yml',
+              colorizeOutput: true
+            },
+        },
+
 		concat: {
             options: {
                 sourceMap: true,
@@ -217,9 +228,7 @@ module.exports = function(grunt) {
 				jshintrc: 'configs/.jshintrc',
 			},
 
-			target: {
-				src: "source/js/*.js"
-			}
+			all: ['source/js/*.js', 'source/js/components/*.js']
 		},
 
 		clean: {
@@ -303,7 +312,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('cssmin_regular', ['cssmin:main', 'cssmin:vendor', 'cssmin:ie8', 'cssmin:pack']);
 
 	grunt.registerTask('css_compile_prod', ['compass:prod', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
-    grunt.registerTask('css_compile_dev', ['compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
+    grunt.registerTask('css_compile_dev', ['scsslint', 'compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
 
 	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8']);
 

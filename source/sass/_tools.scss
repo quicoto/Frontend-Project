@@ -1,14 +1,15 @@
-@import "compass/css3";
+@import 'compass/css3';
 
 $px-only: false !default;
 
-
+// scss-lint:disable DuplicateProperty
 @mixin background-color($color, $alpha) {
 	background-color: $color;
 	background-color: rgba($color, $alpha);
 }
+// scss-lint:enable DuplicateProperty
 
-@function parseInt($n) {
+@function parse-int($n) {
 	@return $n / ($n * 0 + 1);
 }
 
@@ -17,22 +18,17 @@ $px-only: false !default;
 
 	@each $value in $values {
 		$unit: unit($value);
-		$val: parseInt($value);
+		$val: parse-int($value);
 
 		@if ($px-only) {
 			@if ($unit == 'rem') or ($unit == '') {
 				$list: append($list, ($val * 10) + px);
-			}
-			@else {
+			} @else {
 				$list: append($list, $value);
 			}
-		}
-
-		@else if($unit == 'px') or ($unit == 'rem'){
+		} @else if($unit == 'px') or ($unit == 'rem'){
 			$list: append($list, $value);
-		}
-
-		@else {
+		} @else {
 			// we treat default unit as rem
 			$list: append($list, $value + rem);
 		}

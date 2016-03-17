@@ -1,6 +1,8 @@
+'use strict';
+
 var XXX = XXX || {};
 
-$(document).ready(function () {
+$(function () {
 	/* Init components */
 	XXX.components.component1.init();
 });

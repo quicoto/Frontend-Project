@@ -1,3 +1,5 @@
+'use strict';
+
 var XXX = XXX || {};
 
 XXX.components = $.extend(XXX.components, {
@@ -7,11 +9,12 @@ XXX.components = $.extend(XXX.components, {
 
         this._init = function($scope) {
             // Do something
-        }, // init
+            $that._otherFunction();
+        }; // init
 
-        this._otherFuncion = function() {
+        this._otherFunction = function() {
             // Do something else
-        }; // _otherFuncion
+        }; // _otherFunction
 
         return {
 			init: $that._init,

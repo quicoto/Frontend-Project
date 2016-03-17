@@ -2,5 +2,10 @@
 	"undef": false,
 	"eqeqeq": true,
 	"curly": true,
-	"unused": false
+	"unused": false,
+	"strict": true,
+	"globals": {
+	    "$": false
+	},
+	"-W097": true	
 }
