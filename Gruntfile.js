@@ -73,6 +73,7 @@ module.exports = function(grunt) {
         scsslint: {
             allFiles: [
               'source/sass/*.scss',
+			  'source/sass/components/*.scss',
             ],
             options: {
               bundleExec: false,
@@ -203,7 +204,8 @@ module.exports = function(grunt) {
 				files: {
 					'dist/js/XXX-app.min.js': ['dist/js/XXX-app.js'],
 					'dist/js/XXX-vendor.min.js': ['dist/js/XXX-vendor.js'],
-					'dist/js/XXX-pack.min.js': ['dist/js/XXX-pack.js']
+					'dist/js/XXX-pack.min.js': ['dist/js/XXX-pack.js'],
+					'dist/js/XXX-ie89.min.js': ['dist/js/XXX-ie89.js']
 				}
 			}
 		},

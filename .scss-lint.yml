@@ -1,6 +1,7 @@
 # Default application configuration that all configurations inherit from.
+# Check options: https://github.com/brigade/scss-lint/blob/master/config/default.yml
 
-scss_files: "source/sass/**/*.scss"
+scss_files: "design/source/sass/**/*.scss"
 
 # Default severity of all linters.
 severity: error
@@ -17,3 +18,7 @@ linters:
   Indentation:
     width: 1
     character: tab
+
+  LeadingZero:
+    enabled: true
+    style: include_zero
