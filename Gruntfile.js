@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 
         open: {
           server: {
-            path: 'http://localhost:<%= connect.options.port %>'
+            path: 'http://localhost:<%= connect.options.port %>/html'
           }
         },
 
@@ -241,19 +241,19 @@ module.exports = function(grunt) {
 			},
 
             temporalCSS: {
-                src: ["source/css/*"]
+                src: ['source/css/*']
             },
 
             productionCSS: {
-                src: ["dist/css/*.css", "!dist/css/*.min.css", "dist/css/XXX-vendor.min.css", "dist/css/XXX-main.min.css"]
+                src: ['dist/css/*.css', '!dist/css/*.min.css', 'dist/css/XXX-vendor.min.css', 'dist/css/XXX-main.min.css']
             },
 
             productionJS: {
-                src: ["dist/js/*.js", "!dist/js/*.min.js", "dist/js/XXX-main.min.js", "dist/js/XXX-vendor.min.js", "dist/js/XXX-app.min.js"]
+                src: ['dist/js/*.js', '!dist/js/*.min.js', 'dist/js/XXX-main.min.js', 'dist/js/XXX-vendor.min.js', 'dist/js/XXX-app.min.js']
             },
 
             sourceMaps: {
-                src: ["dist/css/*.map", "dist/js/*.map"]
+                src: ['dist/css/*.map', 'dist/js/*.map']
             }
 		},
 
