@@ -227,7 +227,7 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
-				jshintrc: 'configs/.jshintrc',
+				jshintrc: '.jshintrc',
 			},
 
 			all: ['source/js/*.js', 'source/js/components/*.js']
@@ -325,4 +325,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
+	// grunt preview
+	grunt.registerTask('preview', ['clean:all', 'css_compile_dev', 'js_compile', 'copy', 'compile_html']);
 };
