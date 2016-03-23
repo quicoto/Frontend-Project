@@ -9,6 +9,8 @@ XXX.components = $.extend(XXX.components, {
 
         this._init = function($scope) {
             // Do something
+			if (DEBUG) { console.info("[Component1] init..."); }
+			
             $that._otherFunction();
         }; // init
 

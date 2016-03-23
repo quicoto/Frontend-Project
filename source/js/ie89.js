@@ -6,5 +6,6 @@ document.createElement('aside');
 document.createElement('footer');
 
  if (!window.console){
+	/*jshint -W020 */
     console = { log: function(){} };
  }
