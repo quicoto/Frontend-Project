@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 				src: [
 					'source/css/ie8.css'
 				],
-				dest: 'dist/css/XXX-ie8.css'
+				dest: 'dist/css/XXX-ie8.min.css'
 			},
 
 			css_pack: {
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
 			        'dist/css/XXX-vendor.css',
 					'dist/css/XXX-main.css',
 			    ],
-			    dest: 'dist/css/XXX-pack.css'
+			    dest: 'dist/css/XXX-pack.min.css'
 			},
 
 			js_main: {
@@ -131,19 +131,19 @@ module.exports = function(grunt) {
 
 			js_debug_true: {
 				src : ['source/js/__debug_true.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
-				dest : 'dist/js/XXX-pack-debug.js'
+				dest : 'dist/js/XXX-pack.min.js'
 			},
 
 			js_debug_false: {
 				src : ['source/js/__debug_false.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
-				dest : 'dist/js/XXX-pack.js'
+				dest : 'dist/js/XXX-pack.min.js'
 			},
 
 			js_ie8: {
 				src : [
 					'source/js/ie89.js'
 					],
-				dest : 'dist/js/XXX-ie89.js'
+				dest : 'dist/js/XXX-ie89.min.js'
 			},
 		},
 
@@ -154,7 +154,7 @@ module.exports = function(grunt) {
 
 			ie8: {
 				files: {
-					'dist/css/XXX-ie8.css': ['dist/css/XXX-ie8.css'],
+					'dist/css/XXX-ie8.min.css': ['dist/css/XXX-ie8.min.css'],
 				}
 			}
 		},
@@ -179,12 +179,12 @@ module.exports = function(grunt) {
 			},
 
 			ie8: {
-				src: 'dist/css/XXX-ie8.css',
+				src: 'dist/css/XXX-ie8.min.css',
 				dest: 'dist/css/XXX-ie8.min.css'
 			},
 
 			pack: {
-				src: 'dist/css/XXX-pack.css',
+				src: 'dist/css/XXX-pack.min.css',
 				dest: 'dist/css/XXX-pack.min.css'
 			}
 		},
@@ -202,10 +202,8 @@ module.exports = function(grunt) {
 
 			js: {
 				files: {
-					'dist/js/XXX-app.min.js': ['dist/js/XXX-app.js'],
-					'dist/js/XXX-vendor.min.js': ['dist/js/XXX-vendor.js'],
-					'dist/js/XXX-pack.min.js': ['dist/js/XXX-pack.js'],
-					'dist/js/XXX-ie89.min.js': ['dist/js/XXX-ie89.js']
+					'dist/js/XXX-pack.min.js': ['dist/js/XXX-pack.min.js'],
+					'dist/js/XXX-ie89.min.js': ['dist/js/XXX-ie89.min.js']
 				}
 			}
 		},
@@ -316,15 +314,16 @@ module.exports = function(grunt) {
 	grunt.registerTask('css_compile_prod', ['compass:prod', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
     grunt.registerTask('css_compile_dev', ['scsslint', 'compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
 
-	grunt.registerTask('js_compile', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_debug_false', 'concat:js_ie8']);
+	grunt.registerTask('js_compile_prod', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_false', 'concat:js_ie8']);
+	grunt.registerTask('js_compile_dev', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_ie8']);
 
 	grunt.registerTask('compile_html', ['jinja']);
 
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
+	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile_prod', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
 	// grunt dev
-	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
+	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile_dev', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
 	// grunt preview
 	grunt.registerTask('preview', ['clean:all', 'css_compile_dev', 'js_compile', 'copy', 'compile_html']);
 };
