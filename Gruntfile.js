@@ -314,7 +314,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('css_compile_prod', ['compass:prod', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
     grunt.registerTask('css_compile_dev', ['scsslint', 'compass:dev', 'concat:css_bootstrap', 'concat:css_main', 'cmq', 'concat:css_ie8','concat:css_pack', 'stripmq:ie8']);
 
-	grunt.registerTask('js_compile_prod', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_false', 'concat:js_ie8']);
+	grunt.registerTask('js_compile_prod', ['concat:js_main', 'concat:js_vendor', 'concat:js_debug_false', 'concat:js_ie8']);
 	grunt.registerTask('js_compile_dev', ['jshint', 'concat:js_main', 'concat:js_vendor', 'concat:js_debug_true', 'concat:js_ie8']);
 
 	grunt.registerTask('compile_html', ['jinja']);
