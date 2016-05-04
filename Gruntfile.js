@@ -12,6 +12,8 @@ var mountFolder = function (connect, dir) {
 
 module.exports = function(grunt) {
 
+	require('time-grunt')(grunt);
+
     /**
      * Dynamically load npm tasks
      */
