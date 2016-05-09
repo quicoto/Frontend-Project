@@ -9,6 +9,8 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
+var projectName = "Project XXX";
+
 
 module.exports = function(grunt) {
 
@@ -22,18 +24,36 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		notify: {
+			html: {
+				options:{
+		            message: "HTML compiled"
+		        }
+			},
+			css: {
+				options:{
+		            message: "SASS compiled"
+		        }
+			},
+			js: {
+				options:{
+		            message: "JavaScript compiled"
+		        }
+			}
+		},
+
 		watch: {
 			html: {
 				files: ['source/html/*.html', 'source/html/*/*.html'],
-				tasks: ['clean:html', 'compile_html']
+				tasks: ['clean:html', 'compile_html', 'notify:html']
 			},
 			css: {
-				files: ['source/sass/**/*.{scss,sass}', 'source/img/sprite/*', ],
-				tasks: 'css_compile_dev'
+				files: ['source/sass/**/*.{scss,sass}', 'source/img/sprite/*'],
+				tasks: ['css_compile_dev', 'notify:css']
 			},
 			js: {
 				files: 'source/js/**/*.js',
-				tasks: ['js_compile_dev']
+				tasks: ['js_compile_dev', 'notify:js']
 			},
 			grunt_conf: {
 				files: 'Gruntfile.js',
