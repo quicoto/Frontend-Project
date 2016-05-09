@@ -327,5 +327,5 @@ module.exports = function(grunt) {
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile_dev', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
 	// grunt preview
-	grunt.registerTask('preview', ['clean:all', 'css_compile_dev', 'js_compile', 'copy', 'compile_html']);
+	grunt.registerTask('preview', ['clean:all', 'css_compile_dev', 'js_compile_dev', 'copy', 'compile_html']);
 };
