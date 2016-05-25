@@ -314,20 +314,6 @@ module.exports = function(grunt) {
 					src: ['**/!(_)*.html']
 				}]
 			}
-		},
-
-		imagemin: {
-			dynamic: {
-				options: {
-					optimizationLevel: 4
-				},
-				files: [{
-				expand: true,                  // Enable dynamic expansion
-				cwd: 'dist/',          // Src matches are relative to this path
-				src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-				dest: 'dist/'                  // Destination path prefix
-				}]
-			}
 		}
 	});
 
@@ -343,7 +329,7 @@ module.exports = function(grunt) {
 
 	// Different Tasks that can be run
 	// grunt
-	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile_prod', 'uglify:js', 'copy', 'compile_html', 'imagemin', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
+	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile_prod', 'uglify:js', 'copy', 'compile_html', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile_dev', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
 	// grunt preview
