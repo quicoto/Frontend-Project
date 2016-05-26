@@ -9,11 +9,12 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
-var projectName = "Project XXX";
-
+var projectName = "Project XXX",
+	projectFileNames = "XXX";
 
 module.exports = function(grunt) {
 
+	// For times output after grunt task
 	require('time-grunt')(grunt);
 
     /**
@@ -23,6 +24,10 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+
+		project: {
+			fileNames: projectFileNames
+		},
 
 		notify: {
 			html: {
@@ -54,10 +59,6 @@ module.exports = function(grunt) {
 			js: {
 				files: 'source/js/**/*.js',
 				tasks: ['js_compile_dev', 'notify:js']
-			},
-			grunt_conf: {
-				files: 'Gruntfile.js',
-				tasks: 'default'
 			},
             livereload: {
                 options: {
@@ -110,7 +111,7 @@ module.exports = function(grunt) {
             },
 			css_main: {
 				src: ['source/css/main.css'],
-				dest: 'dist/css/XXX-main.css'
+				dest: 'dist/css/<%= project.fileNames %>-main.css'
 			},
 
 			css_bootstrap: {
@@ -118,27 +119,27 @@ module.exports = function(grunt) {
 					'source/css/vendor/font-awesome*.css',
 					'source/css/vendor/bootstrap*/*.css'
 				],
-				dest: 'dist/css/XXX-vendor.css'
+				dest: 'dist/css/<%= project.fileNames %>-vendor.css'
 			},
 
 			css_ie8: {
 				src: [
 					'source/css/ie8.css'
 				],
-				dest: 'dist/css/XXX-ie8.min.css'
+				dest: 'dist/css/<%= project.fileNames %>-ie8.min.css'
 			},
 
 			css_pack: {
 			    src: [
-			        'dist/css/XXX-vendor.css',
-					'dist/css/XXX-main.css',
+			        'dist/css/<%= project.fileNames %>-vendor.css',
+					'dist/css/<%= project.fileNames %>-main.css',
 			    ],
-			    dest: 'dist/css/XXX-pack.min.css'
+			    dest: 'dist/css/<%= project.fileNames %>-pack.min.css'
 			},
 
 			js_main: {
 				src : ['source/js/components/*.js', 'source/js/common.js'],
-				dest : 'dist/js/XXX-app.js'
+				dest : 'dist/js/<%= project.fileNames %>-app.js'
 			},
 
 			js_vendor: {
@@ -147,25 +148,25 @@ module.exports = function(grunt) {
 					'source/js/vendor/bootstrap*/*.js',
 					'source/js/vendor/other*/*.js'
 				],
-				dest : 'dist/js/XXX-vendor.js',
+				dest : 'dist/js/<%= project.fileNames %>-vendor.js',
 				separator: ';'
 			},
 
 			js_debug_true: {
-				src : ['source/js/__debug_true.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
-				dest : 'dist/js/XXX-pack.min.js'
+				src : ['source/js/__debug_true.js', 'dist/js/<%= project.fileNames %>-vendor.js', 'dist/js/<%= project.fileNames %>-app.js'],
+				dest : 'dist/js/<%= project.fileNames %>-pack.min.js'
 			},
 
 			js_debug_false: {
-				src : ['source/js/__debug_false.js', 'dist/js/XXX-vendor.js', 'dist/js/XXX-app.js'],
-				dest : 'dist/js/XXX-pack.min.js'
+				src : ['source/js/__debug_false.js', 'dist/js/<%= project.fileNames %>-vendor.js', 'dist/js/<%= project.fileNames %>-app.js'],
+				dest : 'dist/js/<%= project.fileNames %>-pack.min.js'
 			},
 
 			js_ie8: {
 				src : [
 					'source/js/ie89.js'
 					],
-				dest : 'dist/js/XXX-ie89.min.js'
+				dest : 'dist/js/<%= project.fileNames %>-ie89.min.js'
 			},
 		},
 
@@ -176,7 +177,7 @@ module.exports = function(grunt) {
 
 			ie8: {
 				files: {
-					'dist/css/XXX-ie8.min.css': ['dist/css/XXX-ie8.min.css'],
+					'dist/css/<%= project.fileNames %>-ie8.min.css': ['dist/css/<%= project.fileNames %>-ie8.min.css'],
 				}
 			}
 		},
@@ -191,23 +192,23 @@ module.exports = function(grunt) {
 
 		cssmin: {
 			vendor: {
-				src: 'dist/css/XXX-vendor.css',
-				dest: 'dist/css/XXX-vendor.min.css'
+				src: 'dist/css/<%= project.fileNames %>-vendor.css',
+				dest: 'dist/css/<%= project.fileNames %>-vendor.min.css'
 			},
 
 			main: {
-				src: 'dist/css/XXX-main.css',
-				dest: 'dist/css/XXX-main.min.css'
+				src: 'dist/css/<%= project.fileNames %>-main.css',
+				dest: 'dist/css/<%= project.fileNames %>-main.min.css'
 			},
 
 			ie8: {
-				src: 'dist/css/XXX-ie8.min.css',
-				dest: 'dist/css/XXX-ie8.min.css'
+				src: 'dist/css/<%= project.fileNames %>-ie8.min.css',
+				dest: 'dist/css/<%= project.fileNames %>-ie8.min.css'
 			},
 
 			pack: {
-				src: 'dist/css/XXX-pack.min.css',
-				dest: 'dist/css/XXX-pack.min.css'
+				src: 'dist/css/<%= project.fileNames %>-pack.min.css',
+				dest: 'dist/css/<%= project.fileNames %>-pack.min.css'
 			}
 		},
 
@@ -224,8 +225,8 @@ module.exports = function(grunt) {
 
 			js: {
 				files: {
-					'dist/js/XXX-pack.min.js': ['dist/js/XXX-pack.min.js'],
-					'dist/js/XXX-ie89.min.js': ['dist/js/XXX-ie89.min.js']
+					'dist/js/<%= project.fileNames %>-pack.min.js': ['dist/js/<%= project.fileNames %>-pack.min.js'],
+					'dist/js/<%= project.fileNames %>-ie89.min.js': ['dist/js/<%= project.fileNames %>-ie89.min.js']
 				}
 			}
 		},
@@ -267,11 +268,11 @@ module.exports = function(grunt) {
             },
 
             productionCSS: {
-                src: ['dist/css/*.css', '!dist/css/*.min.css', 'dist/css/XXX-vendor.min.css', 'dist/css/XXX-main.min.css']
+                src: ['dist/css/*.css', '!dist/css/*.min.css', 'dist/css/<%= project.fileNames %>-vendor.min.css', 'dist/css/<%= project.fileNames %>-main.min.css']
             },
 
             productionJS: {
-                src: ['dist/js/*.js', '!dist/js/*.min.js', 'dist/js/XXX-main.min.js', 'dist/js/XXX-vendor.min.js', 'dist/js/XXX-app.min.js']
+                src: ['dist/js/*.js', '!dist/js/*.min.js', 'dist/js/<%= project.fileNames %>-main.min.js', 'dist/js/<%= project.fileNames %>-vendor.min.js', 'dist/js/<%= project.fileNames %>-app.min.js']
             },
 
             sourceMaps: {
@@ -332,6 +333,4 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['clean:all', 'css_compile_prod', 'cssmin_regular', 'js_compile_prod', 'uglify:js', 'copy', 'compile_html', 'clean:productionCSS', 'clean:productionJS', 'clean:sourceMaps', 'clean:temporalCSS']);
 	// grunt dev
 	grunt.registerTask('dev', ['clean:all', 'css_compile_dev', 'js_compile_dev', 'copy', 'compile_html', 'connect:livereload', 'open', 'watch']);
-	// grunt preview
-	grunt.registerTask('preview', ['clean:all', 'css_compile_dev', 'js_compile_dev', 'copy', 'compile_html']);
 };
