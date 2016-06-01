@@ -22,18 +22,17 @@
 
 ```
 "*":
-  'file-types':
-   'ftl': 'text.html.basic'
   "atom-beautify":
-    _analyticsUserId: "2cdc5dba-a431-42e7-b17e-32413745d062"
-    beautifyOnSave: false
-    css_convert_quotes: "single"
-    css_newline_between_rules: true
-    css_preserve_newlines: true
-    css_selector_separator_newline: true
+    css:
+      convert_quotes: "single"
+      newline_between_rules: true
+      preserve_newlines: true
+      selector_separator_newline: true
     general:
-      _analyticsUserId: "463e94db-cc09-4c38-8731-83f5abaf0012"
-    html_indent_inner_html: true
+      _analyticsUserId: "2cdc5dba-a431-42e7-b17e-32413745d062"
+      beautifyOnSave: false
+    html:
+      indent_inner_html: true
   "atom-css-comb":
     readyMadeConfigs: "zen"
   "autocomplete-plus":
@@ -48,6 +47,7 @@
       "linter-bootlint"
       "atom-prettify"
       "react"
+      "atom-jinja2"
     ]
     themes: [
       "seti-ui"
@@ -56,21 +56,39 @@
   "css-comb":
     config: "yandex"
   editor:
-    fontSize: 16
+    fontSize: 17
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
+    softTabs: false
     softWrap: true
     tabLength: 4
     tabType: "hard"
   "exception-reporting":
     userId: "c33b304b-77f0-3669-381d-196e10b46c57"
+  "file-types":
+    ftl: "text.html.basic"
   "seti-ui":
     compactView: true
   "terminal-panel":
     windowHeight: 15
   welcome:
     showOnStartup: false
+".html.jinja.text":
+  editor:
+    tabLength: 4
+".jinja.source":
+  editor:
+    tabLength: 4
+".js.regexp.replacement.source":
+  editor:
+    tabLength: 4
+".js.regexp.source":
+  editor:
+    tabLength: 4
+".js.source":
+  editor:
+    tabLength: 4
 core:
   "exception-reporting":
     userId: "cadcf641-8e30-74d9-9cde-22b2af2f737b"
