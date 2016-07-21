@@ -12,3 +12,5 @@ source/css/*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+npm-debug.log
