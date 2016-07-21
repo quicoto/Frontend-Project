@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+		"removeComments": false,
+		"module": "commonjs"
+    },
+	"buildOnSave": true
+}
