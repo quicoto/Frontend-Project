@@ -4,7 +4,7 @@
   "description": "XXXXXXX",
   "devDependencies": {
     "connect-livereload": ">=0.5.4",
-    "grunt": ">=1.0.1",
+    "grunt": "~0.4.1",
     "grunt-combine-media-queries": ">= 1.0.20",
     "grunt-contrib-clean": ">= 1.0.0",
     "grunt-contrib-compass": ">= 1.1.1",
