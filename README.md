@@ -7,10 +7,12 @@
 ## Atom Packages
 
 * atom-beautify
+* atom-typescript
 * autoclose-html
 * emmet
 * file-types
 * linter
+* linter-htmlhint
 * linter-jshint
 * linter-scss-lint
 * markdown-writter
@@ -48,6 +50,7 @@
       "atom-prettify"
       "react"
       "atom-jinja2"
+      "atom-easy-jsdoc"
     ]
     themes: [
       "seti-ui"
@@ -56,7 +59,7 @@
   "css-comb":
     config: "yandex"
   editor:
-    fontSize: 17
+    fontSize: 18
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -68,6 +71,8 @@
     userId: "c33b304b-77f0-3669-381d-196e10b46c57"
   "file-types":
     ftl: "text.html.basic"
+  linter:
+    errorPanelHeight: 24
   "seti-ui":
     compactView: true
   "terminal-panel":
@@ -89,6 +94,12 @@
 ".js.source":
   editor:
     tabLength: 4
+".source.ts":
+  editor:
+    tabLength: 4
+".source.tsx":
+  editor:
+    tabLength: 4
 core:
   "exception-reporting":
     userId: "cadcf641-8e30-74d9-9cde-22b2af2f737b"
@@ -107,7 +118,6 @@ core:
     windowHeight: 25
   welcome:
     showOnStartup: false
-
 
 ```
 
