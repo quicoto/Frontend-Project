@@ -52,6 +52,7 @@
       "atom-jinja2"
       "atom-easy-jsdoc"
     ]
+    telemetryConsent: "no"
     themes: [
       "seti-ui"
       "monokai"
@@ -118,6 +119,7 @@ core:
     windowHeight: 25
   welcome:
     showOnStartup: false
+
 
 ```
 
