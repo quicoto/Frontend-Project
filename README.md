@@ -51,6 +51,7 @@
       "react"
       "atom-jinja2"
       "atom-easy-jsdoc"
+      "autoclose"
     ]
     telemetryConsent: "no"
     themes: [
@@ -72,6 +73,8 @@
     userId: "c33b304b-77f0-3669-381d-196e10b46c57"
   "file-types":
     ftl: "text.html.basic"
+  "git-diff":
+    showIconsInEditorGutter: true
   linter:
     errorPanelHeight: 24
   "seti-ui":
@@ -119,8 +122,6 @@ core:
     windowHeight: 25
   welcome:
     showOnStartup: false
-
-
 ```
 
 MIT License
