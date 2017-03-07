@@ -9,15 +9,16 @@
 * atom-beautify
 * atom-typescript
 * autoclose-html
+* editorconfig
 * emmet
 * file-types
 * linter
+* linter-eslint
 * linter-htmlhint
-* linter-jshint
-* linter-scss-lint
+* linter-sass-lint
 * markdown-writter
 * pigments
-* terminal-panel
+
 
 
 ## Atom Config
@@ -41,6 +42,19 @@
     confirmCompletion: "tab and enter"
     strictMatching: true
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "autocomplete"
       "autosave"
@@ -51,7 +65,6 @@
       "react"
       "atom-jinja2"
       "atom-easy-jsdoc"
-      "autoclose"
     ]
     telemetryConsent: "no"
     themes: [
@@ -61,14 +74,13 @@
   "css-comb":
     config: "yandex"
   editor:
-    fontSize: 18
+    fontSize: 17
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     softTabs: false
     softWrap: true
     tabLength: 4
-    tabType: "hard"
   "exception-reporting":
     userId: "c33b304b-77f0-3669-381d-196e10b46c57"
   "file-types":
@@ -77,12 +89,18 @@
     showIconsInEditorGutter: true
   linter:
     errorPanelHeight: 24
-  "seti-ui":
-    compactView: true
+  "linter-eslint":
+    disableWhenNoEslintConfig: false
+  "linter-sass-lint":
+    resolvePathsRelativeToConfig: true
+  "seti-ui": {}
   "terminal-panel":
     windowHeight: 15
   welcome:
     showOnStartup: false
+".editorconfig.source":
+  editor:
+    tabLength: 4
 ".html.jinja.text":
   editor:
     tabLength: 4
