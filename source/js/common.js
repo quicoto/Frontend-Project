@@ -2,7 +2,7 @@
 
 var XXX = XXX || {};
 
-$(function () {
-	/* Init components */
-	XXX.components.component1.init();
+$(function() {
+    /* Init components */
+    XXX.components.component1.init();
 });
