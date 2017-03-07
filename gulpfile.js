@@ -22,9 +22,7 @@ const paths = {
     htmlFiles: './source/html/pages/**/*.html',
     htmlDist: outDir + '/html',
     sassFiles: [
-        './source/sass/**/*.scss',
-        '!./source/sass/vendor/**/*.scss',
-        './source/sass/vendor/bootstrap-3.3.7/bootstrap.scss'
+        './source/sass/main.scss'
     ],
     sassFilesToLinting: [
         './source/sass/components/**/*.scss',
