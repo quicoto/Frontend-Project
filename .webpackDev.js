@@ -11,9 +11,14 @@ module.exports = {
             }
         ]
     },
+    "resolve": {
+        "alias": {
+            "vue$": "vue/dist/vue.js"
+        }
+    },
     // "entry": entry,
     "output": {
         "filename": "[name].js"
     },
-    "devtool": "cheap-source-map"
+    "devtool": "source-map"
 };

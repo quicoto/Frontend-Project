@@ -2,8 +2,10 @@
 
 {% include "includes/_head.html" %}
 
-<section class="container">
-	<h1>Hello World</h1>
+<section class="container" id="component1">
+    {% raw %}
+	<h1 class="test">{{title}}</h1>
+    {% endraw %}
 
 	<ul>
 		{% for _ in range(0, 10) -%}
