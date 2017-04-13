@@ -7,19 +7,17 @@
 ## Atom Packages
 
 * atom-beautify
-* atom-typescript
-* autoclose-html
+* busy-signal
 * editorconfig
 * emmet
 * file-types
+* intentions
 * linter
 * linter-eslint
 * linter-htmlhint
 * linter-sass-lint
 * markdown-writter
 * pigments
-
-
 
 ## Atom Config
 
@@ -87,12 +85,15 @@
     ftl: "text.html.basic"
   "git-diff":
     showIconsInEditorGutter: true
-  linter:
-    errorPanelHeight: 24
+  linter: {}
   "linter-eslint":
     disableWhenNoEslintConfig: false
   "linter-sass-lint":
     resolvePathsRelativeToConfig: true
+  "linter-ui-default":
+    panelHeight: 116
+    showPanel: true
+  "node-debugger": {}
   "seti-ui": {}
   "terminal-panel":
     windowHeight: 15
@@ -126,7 +127,6 @@ core:
   "exception-reporting":
     userId: "cadcf641-8e30-74d9-9cde-22b2af2f737b"
   linter:
-    showErrorInline: true
     statusBar: "Show all errors"
   "linter-eslint":
     disableWhenNoEslintConfig: false
