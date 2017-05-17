@@ -11,6 +11,8 @@
 * editorconfig
 * emmet
 * file-types
+* goto-definition
+* hyperclick
 * intentions
 * linter
 * linter-eslint
@@ -63,12 +65,14 @@
       "react"
       "atom-jinja2"
       "atom-easy-jsdoc"
+      "tree-view"
     ]
     telemetryConsent: "no"
     themes: [
       "seti-ui"
       "monokai"
     ]
+    titleBar: "custom-inset"
   "css-comb":
     config: "yandex"
   editor:
@@ -94,6 +98,10 @@
     panelHeight: 116
     showPanel: true
   "node-debugger": {}
+  nuclide:
+    "nuclide-diagnostics-ui": {}
+    "nuclide-home":
+      showHome: false
   "seti-ui": {}
   "terminal-panel":
     windowHeight: 15
