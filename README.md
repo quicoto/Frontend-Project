@@ -89,6 +89,8 @@
     ftl: "text.html.basic"
   "git-diff":
     showIconsInEditorGutter: true
+  hyperclick:
+    darwinTriggerKeys: "altKey"
   linter: {}
   "linter-eslint":
     disableWhenNoEslintConfig: false
@@ -96,7 +98,6 @@
     resolvePathsRelativeToConfig: true
   "linter-ui-default":
     panelHeight: 116
-    showPanel: true
   "node-debugger": {}
   nuclide:
     "nuclide-diagnostics-ui": {}
