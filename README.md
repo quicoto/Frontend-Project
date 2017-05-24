@@ -14,6 +14,7 @@
 * goto-definition
 * hyperclick
 * intentions
+* language-freemarker
 * linter
 * linter-eslint
 * linter-htmlhint
