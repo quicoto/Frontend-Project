@@ -1,8 +1,8 @@
 ## Atom Themes
 
-**UI Theme**: Seti
+**UI Theme**: Atom Material UI
 
-**Syntax Theme**: Monokai
+**Syntax Theme**: Atom Material Syntax
 
 ## Atom Packages
 
@@ -10,6 +10,7 @@
 * busy-signal
 * editorconfig
 * emmet
+* file-icons
 * file-types
 * goto-definition
 * hyperclick
@@ -39,6 +40,13 @@
       indent_inner_html: true
   "atom-css-comb":
     readyMadeConfigs: "zen"
+  "atom-material-ui":
+    colors: {}
+    fonts:
+      fontSize: 19
+    tabs: {}
+    ui:
+      panelContrast: true
   "autocomplete-plus":
     confirmCompletion: "tab and enter"
     strictMatching: true
@@ -70,8 +78,8 @@
     ]
     telemetryConsent: "no"
     themes: [
-      "seti-ui"
-      "monokai"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
     titleBar: "custom-inset"
   "css-comb":
@@ -86,6 +94,7 @@
     tabLength: 4
   "exception-reporting":
     userId: "c33b304b-77f0-3669-381d-196e10b46c57"
+  "file-icons": {}
   "file-types":
     ftl: "text.html.basic"
   "git-diff":
