@@ -74,7 +74,6 @@
       "react"
       "atom-jinja2"
       "atom-easy-jsdoc"
-      "tree-view"
     ]
     telemetryConsent: "no"
     themes: [
@@ -116,6 +115,8 @@
   "seti-ui": {}
   "terminal-panel":
     windowHeight: 15
+  "tree-view":
+    alwaysOpenExisting: true
   welcome:
     showOnStartup: false
 ".editorconfig.source":
