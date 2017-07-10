@@ -15,7 +15,8 @@
 * goto-definition
 * hyperclick
 * intentions
-* language-freemarker
+* language-freemarker (for Magnolia / TeamSite)
+* language-htl (for AEM)
 * linter
 * linter-eslint
 * linter-htmlhint
