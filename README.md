@@ -1,3 +1,7 @@
+## Terminal
+
+* https://github.com/robbyrussell/oh-my-zsh (for Git branches and other awesomeness)
+
 ## Atom Themes
 
 **UI Theme**: Atom Material UI
