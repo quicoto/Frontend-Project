@@ -1,6 +1,9 @@
 ## Terminal
 
 * https://github.com/robbyrussell/oh-my-zsh (for Git branches and other awesomeness)
+  * Install fonts: https://github.com/powerline/fonts
+  * Use Menlo Powerline font
+  * Add `DEFAULT_USER=$USER` to the `~/.zshrc` to hide the machine name
 
 ## Atom Themes
 
