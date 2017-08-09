@@ -24,10 +24,13 @@
 * intentions
 * language-freemarker (for Magnolia / TeamSite)
 * language-htl (for AEM)
+* language-postcss
+* language-vue
 * linter
 * linter-eslint
 * linter-htmlhint
 * linter-sass-lint
+* linter-stylelint
 * markdown-writter
 * pigments
 
