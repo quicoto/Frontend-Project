@@ -92,7 +92,7 @@
   "css-comb":
     config: "yandex"
   editor:
-    fontSize: 17
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -110,11 +110,13 @@
     darwinTriggerKeys: "altKey"
   linter: {}
   "linter-eslint":
-    disableWhenNoEslintConfig: false
+    advancedLocalNodeModules: "/Users/ricard.torres/Projects/mamcom/mamcom-web-components/mamcom-web-components-package/frontend-build/node_modules"
+    fixOnSave: true
   "linter-sass-lint":
     resolvePathsRelativeToConfig: true
   "linter-ui-default":
     panelHeight: 116
+    showPanel: true
   "node-debugger": {}
   nuclide:
     "nuclide-diagnostics-ui": {}
@@ -125,6 +127,7 @@
     windowHeight: 15
   "tree-view":
     alwaysOpenExisting: true
+    autoReveal: true
   welcome:
     showOnStartup: false
 ".editorconfig.source":
