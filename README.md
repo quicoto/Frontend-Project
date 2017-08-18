@@ -18,13 +18,12 @@
 * editorconfig
 * emmet
 * file-icons
-* file-types
+* file-types (for associating .pcss and .ftl as other syntax)
 * goto-definition
 * hyperclick
 * intentions
 * language-freemarker (for Magnolia / TeamSite)
 * language-htl (for AEM)
-* language-postcss
 * language-vue
 * linter
 * linter-eslint
@@ -86,6 +85,9 @@
       "atom-jinja2"
       "atom-easy-jsdoc"
     ]
+    packagesWithKeymapsDisabled: [
+      "api-docs"
+    ]
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -97,6 +99,7 @@
   editor:
     fontSize: 15
     invisibles: {}
+    preferredLineLength: 100
     scrollPastEnd: true
     showIndentGuide: true
     softTabs: false
@@ -107,6 +110,7 @@
   "file-icons": {}
   "file-types":
     ftl: "text.html.basic"
+    pcss: "source.css"
   "git-diff":
     showIconsInEditorGutter: true
   hyperclick:
@@ -117,8 +121,10 @@
     fixOnSave: true
   "linter-sass-lint":
     resolvePathsRelativeToConfig: true
+  "linter-stylelint":
+    disableWhenNoConfig: false
   "linter-ui-default":
-    panelHeight: 116
+    panelHeight: 97
     showPanel: true
   "node-debugger": {}
   nuclide:
@@ -133,6 +139,10 @@
     autoReveal: true
   welcome:
     showOnStartup: false
+".aem.htl":
+  editor:
+    commentEnd: " */-->"
+    commentStart: "<!--/* "
 ".editorconfig.source":
   editor:
     tabLength: 4
