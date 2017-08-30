@@ -97,7 +97,7 @@
   "css-comb":
     config: "yandex"
   editor:
-    fontSize: 15
+    fontSize: 17
     invisibles: {}
     preferredLineLength: 100
     scrollPastEnd: true
@@ -124,7 +124,7 @@
   "linter-stylelint":
     disableWhenNoConfig: false
   "linter-ui-default":
-    panelHeight: 97
+    panelHeight: 304
     showPanel: true
   "node-debugger": {}
   nuclide:
