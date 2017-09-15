@@ -14,6 +14,7 @@
 ## Atom Packages
 
 * atom-beautify
+* atom-ide-ui 
 * busy-signal
 * editorconfig
 * emmet
@@ -21,6 +22,7 @@
 * file-types (for associating .pcss and .ftl as other syntax)
 * goto-definition
 * hyperclick
+* ide-typescript
 * intentions
 * language-freemarker (for Magnolia / TeamSite)
 * language-htl (for AEM)
