@@ -21,6 +21,7 @@
 * emmet
 * file-icons
 * file-types (for associating .pcss and .ftl as other syntax)
+* git-blame
 * goto-definition
 * hyperclick
 * ide-typescript
