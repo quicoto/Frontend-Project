@@ -29,6 +29,7 @@
 * language-freemarker (for Magnolia / TeamSite)
 * language-htl (for AEM)
 * language-vue
+* line-diff-details
 * linter
 * linter-eslint
 * linter-htmlhint
