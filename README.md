@@ -15,6 +15,7 @@
 
 * atom-beautify
 * atom-ide-ui 
+* atom-npm-outdated
 * busy-signal
 * editorconfig
 * emmet
@@ -52,6 +53,9 @@
       indent_inner_html: true
   "atom-css-comb":
     readyMadeConfigs: "zen"
+  "atom-ide-ui":
+    use:
+      "atom-ide-diagnostics-ui": false
   "atom-material-ui":
     colors: {}
     fonts:
@@ -113,6 +117,8 @@
   "file-types":
     ftl: "text.html.basic"
     pcss: "source.css"
+  "git-blame":
+    columnWidth: 382
   "git-diff":
     showIconsInEditorGutter: true
   hyperclick:
@@ -127,7 +133,6 @@
     disableWhenNoConfig: false
   "linter-ui-default":
     panelHeight: 304
-    showPanel: true
   "node-debugger": {}
   nuclide:
     "nuclide-diagnostics-ui": {}
