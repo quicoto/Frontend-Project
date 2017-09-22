@@ -90,7 +90,6 @@
       "atom-prettify"
       "react"
       "atom-jinja2"
-      "atom-easy-jsdoc"
     ]
     packagesWithKeymapsDisabled: [
       "api-docs"
