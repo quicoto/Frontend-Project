@@ -91,6 +91,16 @@
       "react"
       "atom-jinja2"
     ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "node_modules"
+    ]
     packagesWithKeymapsDisabled: [
       "api-docs"
     ]
