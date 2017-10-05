@@ -22,6 +22,7 @@
 * file-icons
 * file-types (for associating .pcss and .ftl as other syntax)
 * git-blame
+* git-plus
 * hyperclick
 * ide-typescript
 * intentions
