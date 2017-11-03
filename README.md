@@ -55,6 +55,8 @@
       indent_inner_html: true
   "atom-css-comb":
     readyMadeConfigs: "zen"
+  "atom-easy-jsdoc":
+    useReturns: true
   "atom-ide-ui":
     use:
       "atom-ide-diagnostics-ui": false
@@ -69,6 +71,7 @@
     confirmCompletion: "tab and enter"
     strictMatching: true
   core:
+    closeDeletedFileTabs: true
     customFileTypes:
       "source.ini": [
         ".buckconfig"
@@ -101,9 +104,9 @@
       "Thumbs.db"
       "desktop.ini"
       "node_modules"
-    ]
-    packagesWithKeymapsDisabled: [
-      "api-docs"
+      "target"
+      ".bundle.js"
+      ".bundle.css"
     ]
     telemetryConsent: "no"
     themes: [
@@ -119,6 +122,7 @@
     preferredLineLength: 100
     scrollPastEnd: true
     showIndentGuide: true
+    showInvisibles: true
     softTabs: false
     softWrap: true
     tabLength: 4
@@ -129,7 +133,7 @@
     ftl: "text.html.basic"
     pcss: "source.css"
   "git-blame":
-    columnWidth: 382
+    columnWidth: 486
   "git-diff":
     showIconsInEditorGutter: true
   hyperclick:
@@ -143,7 +147,8 @@
   "linter-stylelint":
     disableWhenNoConfig: false
   "linter-ui-default":
-    panelHeight: 304
+    panelHeight: 229
+    showPanel: true
   "node-debugger": {}
   nuclide:
     "nuclide-diagnostics-ui": {}
