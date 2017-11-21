@@ -122,6 +122,7 @@
   "css-comb":
     config: "yandex"
   editor:
+    fontFamily: "Fira Code"
     fontSize: 17
     invisibles: {}
     preferredLineLength: 100
@@ -211,6 +212,64 @@ core:
     windowHeight: 25
   welcome:
     showOnStartup: false
+```
+
+## Atom Stylesheet
+
+```
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+ atom-text-editor {
+   text-rendering: optimizeLegibility;
+
+   &.editor .syntax--string.syntax--quoted,
+   &.editor .syntax--string.syntax--regexp {
+     -webkit-font-feature-settings: "liga" off, "calt" off;
+   }
+ }
+
+ atom-text-editor.editor {
+  /*
+    Transform selected text into alternative font for elegant touch:
+    - this
+    - HTML and JSX attributes
+    - JS functions (except arrow function)
+    - JS undefined
+    - JS storage (const/let/async)
+    - EX constants
+    - Ruby (nil/self/block)
+    - Ruby hash keys
+  */
+  .syntax--variable.syntax--language.syntax--this,
+  .syntax--html > .syntax--attribute-name,
+  .syntax--JSXAttrs > .syntax--attribute-name,
+  .syntax--storage.syntax--type.syntax--js:not(.syntax--function):not(.syntax--arrow),
+  .syntax--constant.syntax--language.syntax--undefined.syntax--js,
+  .syntax--constant.syntax--other.syntax--object.syntax--key.syntax--js,
+  .syntax--variable.syntax--other.syntax--constant.syntax--elixir,
+  .syntax--constant.syntax--language.syntax--elixir,
+  .syntax--constant.syntax--language.syntax--nil.syntax--ruby,
+  .syntax--variable.syntax--language.syntax--self.syntax--ruby,
+  .syntax--constant.syntax--other.syntax--symbol.syntax--hashkey.syntax--ruby,
+  .syntax--variable.syntax--other.syntax--block.syntax--ruby {
+    vertical-align: baseline;
+    font-family: 'Bad Script', cursive;
+    font-size: 125%;
+    font-style: normal !important;
+    height: inherit;
+    line-height: 100%;
+  }
+}
 ```
 
 MIT License
