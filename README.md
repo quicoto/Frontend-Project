@@ -272,6 +272,10 @@ core:
     line-height: 100%;
   }
 }
+
+.scroll-view .lines {
+    padding: 5px;
+}
 ```
 
 MIT License
