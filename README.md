@@ -14,6 +14,7 @@
 ## Atom Packages
 
 * atom-beautify
+* atom-easy-jsdoc
 * atom-ide-ui 
 * atom-npm-outdated
 * busy-signal
@@ -37,6 +38,7 @@
 * linter-stylelint
 * markdown-writter
 * pigments
+* teletype
 
 ## Atom Config
 
@@ -58,8 +60,10 @@
   "atom-easy-jsdoc":
     useReturns: true
   "atom-ide-ui":
-    use:
-      "atom-ide-diagnostics-ui": false
+    "atom-ide-diagnostics-ui":
+      autoVisibility: true
+      showDirectoryColumn: true
+    use: {}
   "atom-material-ui":
     colors: {}
     fonts:
@@ -94,6 +98,7 @@
       "atom-prettify"
       "react"
       "atom-jinja2"
+      "linter"
     ]
     ignoredNames: [
       ".git"
@@ -148,7 +153,6 @@
     disableWhenNoConfig: false
   "linter-ui-default":
     panelHeight: 229
-    showPanel: true
   "node-debugger": {}
   nuclide:
     "nuclide-diagnostics-ui": {}
