@@ -250,6 +250,8 @@ core:
     - Ruby (nil/self/block)
     - Ruby hash keys
   */
+  .syntax--storage.syntax--type.syntax--function.syntax--js,
+  .syntax--keyword.syntax--control.syntax--js,
   .syntax--variable.syntax--language.syntax--this,
   .syntax--html > .syntax--attribute-name,
   .syntax--JSXAttrs > .syntax--attribute-name,
