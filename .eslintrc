@@ -1,60 +1,105 @@
 {
-    "rules": {
-        "indent": [
-            2,
-            4,
-            { "SwitchCase": 1 }
-        ],
-        "space-infix-ops": 2,
-        "camelcase": [
-            2,
-            { "properties": "always" }
-        ],
-        "space-before-function-paren": [2,"never"],
-        "space-before-blocks": [2, "always"],
-        "brace-style": [
-            2,
-            "1tbs",
-            { "allowSingleLine": true }
-        ],
-        "semi": [2, "always"],
-        "key-spacing": [
-            2,
-            {
-                "singleLine": {
-                    "beforeColon": false,
-                    "afterColon": true
-                },
-                "multiLine": {
-                    "beforeColon": false,
-                    "afterColon": true
-                }
-            }
-        ],
-        "quotes": [
-            2,
-            "single",
-            {
-                "avoidEscape": true,
-                "allowTemplateLiterals": true
-            }
-        ],
-        "no-unused-vars": 0,
-        "one-var": 0,
-        "no-trailing-spaces": [
-            2,
-            {
-                "skipBlankLines": true
-            }
-        ],
-        "operator-linebreak": [2, "after"],
-        "no-unreachable": 2
-    },
-    "globals": {
-        "$": false
-    },
-    "env": {
-        "browser": true,
-        "node": true
-    }
+  "root": true,
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended"
+  ],
+  "plugins": [
+    "jest",
+    "compat"
+  ],
+  "settings": {
+    "polyfills": ["promises"]
+  },
+  "globals": {
+    "WEBPACK_VARIABLE_IS_PRODUCTION": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "max-len": [
+      "error",
+      {
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "code": 100
+      }
+    ],
+    "max-lines": ["error", {
+        "max": 400,
+        "skipBlankLines": true,
+        "skipComments": true,
+    }],
+    "max-params": ["error", 5],
+    "no-console": ["error"],
+    "no-multiple-empty-lines": ["error", { "max": 1 } ],
+    "no-param-reassign": ["error", { "props": false }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]},
+      { "blankLine": "always", "prev": "directive", "next": "*" },
+      { "blankLine": "any",    "prev": "directive", "next": "directive" }
+    ],
+    "quotes": ["error", "backtick"],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": true}],
+    "valid-jsdoc": ["error", {
+      "prefer": {
+        "arg": "param",
+        "argument": "param",
+        "class": "constructor",
+        "return": "return",
+        "virtual": "abstract"
+      },
+      "preferType": {
+        "Function": "function",
+        "Boolean": "boolean",
+        "Number": "number",
+        "object": "object",
+        "String": "string"
+      },
+      "requireReturn": false,
+      "requireParamDescription": false,
+      "requireReturnDescription": false
+    }],
+
+    // overwrite/extend airbnb-eslint rules
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    // deactivated airbnb-eslint rules
+    "function-paren-newline": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "global-require": "off",
+    "func-names": "off",
+    "prefer-destructuring": "off",
+
+    // plugin-import
+    // deactivated rules, mostly because they doesn't play well with webpack
+    "import/extensions": "off",
+    "import/no-absolute-path": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-duplicates": "off",
+    "import/no-named-as-default": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-dynamic-require": "off",
+
+    // plugin-jest
+    "jest/no-disabled-tests": "error",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
+
+    // plugin compat
+    "compat/compat": "error"
+  },
+  "env": {
+    "jest": true,
+    "browser": true
+  }
 }
