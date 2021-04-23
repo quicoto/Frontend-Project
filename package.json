@@ -1,6 +1,6 @@
 {
   "name": "frontend-starter-build",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Frontend Starter Build",
   "main": "index.js",
   "scripts": {
@@ -25,23 +25,23 @@
     "url": "https://ricard.dev"
   },
   "dependencies": {
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-sass": "^4.1.0",
     "npm-run-all": "^4.1.5",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^6.1.2"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "eslint": "^7.1.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "husky": "^4.2.5",
-    "install-peerdeps": "^2.0.3",
-    "stylelint": "^13.5.0",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.17.2"
+    "browser-sync": "^2.26.14",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^6.0.0",
+    "install-peerdeps": "^3.0.3",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-scss": "^3.19.0"
   },
   "license": "MIT"
 }
